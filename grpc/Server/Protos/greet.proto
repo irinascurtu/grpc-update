@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option csharp_namespace = "Server";
+
+package greet;
+
+// The greeting service definition.
+service Greeter {
+  // Sends a greeting
+  rpc SayHello (Request) returns (Response);
+  
+  rpc ServerStream (Request) returns (stream Response);
+  rpc ClientStream (stream Request) returns (Response);
+  rpc BiDirectional (stream Request) returns (stream Response);
+}
+
+// The request message containing the user's name.
+message Request {
+  string ContentValue = 1;
+}
+
+// The response message.
+message Response {
+  string message = 1;
+}
