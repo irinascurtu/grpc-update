@@ -14,7 +14,7 @@ namespace Client
             
             var channel =  GrpcChannel.ForAddress("http://localhost:5000");
             var client = new Server.Greeter.GreeterClient(channel);
-           
+
 
             var cts = new CancellationTokenSource();
             using var streamingCall = client.ServerStream(new Request(), cancellationToken: cts.Token);

@@ -27,25 +27,9 @@ var defaultMethodConfig = new MethodConfig
     //}
 };
 
+Request request = new Request() { ContentValue = "Update-Conference-Prague" };
 
-
-
-//var channel = GrpcChannel.ForAddress("http://localhost:5000", new GrpcChannelOptions
-//{
-//    ServiceConfig = new ServiceConfig
-//    {
-//        MethodConfigs = {
-//            defaultMethodConfig
-//        },
-//        RetryThrottling = { },
-//        //LoadBalancingConfigs = { }
-//    }
-//});
-
-
-Request request = new Request() { ContentValue = ".NET developer days" };
-
-//#region ClientSide Load Balancing
+#region ClientSide Load Balancing
 var factory = new StaticResolverFactory(addr => new[]
 {
     new BalancerAddress("localhost", 5000),
@@ -71,16 +55,9 @@ var channel = GrpcChannel.ForAddress(
 var client = new Greeter.GreeterClient(channel);
 var response = client.SayHello(request);
 Console.WriteLine($"The reply is: {response.Message}");
-////var services = new ServiceCollection();
-////services.AddSingleton<ResolverFactory>(new DnsResolverFactory(refreshInterval: TimeSpan.FromSeconds(30)));
 
 
-
-
-////var client = new Greeter.GreeterClient(channel);
-////var reply = client.SayHello(request, options: new CallOptions() { });
-////Console.WriteLine(reply.Message);
-//#endregion
+#endregion
 
 #region retry
 
@@ -110,9 +87,9 @@ Console.WriteLine($"The reply is: {response.Message}");
 
 //var cts = new CancellationTokenSource();
 //using var channelWithRetry = GrpcChannel.ForAddress("http://localhost:5000", options);
-//var client = new Greeter.GreeterClient(channelWithRetry);
-//var response1 = client.SayHello(request);
-//Console.WriteLine(response1);
+//var clientWithRetry = new Greeter.GreeterClient(channelWithRetry);
+//var responseWithRetry = clientWithRetry.SayHello(request);
+//Console.WriteLine(responseWithRetry);
 
 #endregion
 Console.ReadLine();
