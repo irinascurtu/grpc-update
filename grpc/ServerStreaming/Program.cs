@@ -16,13 +16,13 @@ namespace Client
             var client = new Server.Greeter.GreeterClient(channel);
 
 
-            var cts = new CancellationTokenSource();
-            using var streamingCall = client.ServerStream(new Request(), cancellationToken: cts.Token);
+            //var cts = new CancellationTokenSource();
+            //using var streamingCall = client.ServerStream(new Request(), cancellationToken: cts.Token);
 
-            //var cts = new CancellationTokenSource(TimeSpan.FromSeconds(5));
-            //using var streamingCall = client.ServerStream(new Server.Request(),
-            //                                            deadline: DateTime.UtcNow.AddMilliseconds(1),
-            //                                            cancellationToken: cts.Token);
+            var cts = new CancellationTokenSource(TimeSpan.FromSeconds(5));
+            using var streamingCall = client.ServerStream(new Server.Request(),
+                                                        deadline: DateTime.UtcNow.AddMilliseconds(1),
+                                                        cancellationToken: cts.Token);
 
             try
             {
