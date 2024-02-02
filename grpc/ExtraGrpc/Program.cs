@@ -27,7 +27,7 @@ var defaultMethodConfig = new MethodConfig
     //}
 };
 
-Request request = new Request() { ContentValue = "Update-Conference-Prague" };
+Request request = new Request() { ContentValue = "NDC-London" };
 
 #region ClientSide Load Balancing
 var factory = new StaticResolverFactory(addr => new[]
@@ -59,7 +59,7 @@ Console.WriteLine($"The reply is: {response.Message}");
 
 #endregion
 
-#region retry
+//#region retry
 
 //var retryPolicy = new MethodConfig
 //{
@@ -91,5 +91,5 @@ Console.WriteLine($"The reply is: {response.Message}");
 //var responseWithRetry = clientWithRetry.SayHello(request);
 //Console.WriteLine(responseWithRetry);
 
-#endregion
+//#endregion
 Console.ReadLine();

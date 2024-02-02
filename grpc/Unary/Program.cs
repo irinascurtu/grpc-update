@@ -12,7 +12,7 @@ GrpcChannel channel =  GrpcChannel.ForAddress("http://localhost:5000");
 var client = new Greeter.GreeterClient(channel);
 var cts = new CancellationTokenSource();
 
-Request request = new Request() { ContentValue = "Hello Sheffield!" };
+Request request = new Request() { ContentValue = "Hello NDC!" };
 
 Console.WriteLine($"sending: {request.ContentValue}");
 
