@@ -11,10 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Grpc.AspNetCore" Version="2.59.0" />
-    <PackageReference Include="Grpc.AspNetCore.Server.Reflection" Version="2.59.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Grpc.JsonTranscoding" Version="8.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Grpc.Swagger" Version="0.8.0" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.65.0" />
+    <PackageReference Include="Grpc.AspNetCore.Server.Reflection" Version="2.65.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Grpc.JsonTranscoding" Version="8.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Grpc.Swagger" Version="0.8.8" />
   </ItemGroup>
 
 </Project>
